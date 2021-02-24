@@ -16,7 +16,7 @@ services:
       retries: 5
 
   kong-migration:
-    build: ./kong
+    image: kong:1.0.0rc3-alpine
     container_name: kong-migration
     depends_on:
       kong-database:
@@ -32,7 +32,7 @@ services:
       retries: 5
 
   kong:
-    build: ./kong
+    image: kong:1.0.0rc3-alpine
     container_name: kong
     depends_on:
       kong-database:
@@ -70,25 +70,14 @@ services:
       timeout: 5s
       retries: 5
 
-#  kong-dashboard:
-#    image: pgbi/kong-dashboard:v3
-#    container_name: kong-dashboard
-#    depends_on:
-#      kong:
-#        condition: service_healthy
-#    command: start --kong-url http://kong:8001
-#    ports:
-#      - 8080:8080
-#    restart: on-failure
-
   konga:
-    build: ./konga
+    image: pantsel/konga:latest
     container_name: konga
     depends_on:
       konga-database:
         condition: service_healthy
     volumes:
-      - ./konga/user_seed.js:/app/user_seed.js:ro
+      - ./user_seed.js:/app/user_seed.js:ro
     ports:
       - 1337:1337
     environment:
