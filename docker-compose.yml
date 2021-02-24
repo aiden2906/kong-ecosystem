@@ -88,11 +88,6 @@ services:
       NODE_ENV: production
     restart: on-failure
 
-  app:
-    build: ./sample-service
-    container_name: kong-app
-    restart: on-failure
-
 volumes:
   kong_data:
   konga_data:
