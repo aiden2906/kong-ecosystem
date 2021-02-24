@@ -6,6 +6,7 @@
 - Tiếp tục, truy cập `http://localhost:1337` để dùng Kong bằng trình duyệt Konga
 - Đăng nhập vào Konga bằng tài khoản dành cho Admin (`username`: `admin`, `password`: `adminadminadmin`)
 - Tạo một `connection` đến `Kong admin` thông qua url `http://${ip_kong_admin}:8001`
+
 ![](https://i.imgur.com/SzTt0FH.png)
 
 Khởi động, một `sample service` để kiểm thử `Kong Gateway`
